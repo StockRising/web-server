@@ -1,0 +1,5 @@
+{
+    "host": "http://localhost:3000",
+    "dbURI": "mongodb://tocology:123123@ds019990.mlab.com:19990/stockrising",
+    "sessionSecret": "stockrisingsomeday"
+}
