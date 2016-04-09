@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <script src="//code.jquery.com/jquery-1.9.1.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        var check = setInterval(function() {
+          $.ajax({
+            url: "http://stockrising2.herokuapp.com/users/checkSignal",
+            type: "POST",
+            data: { name: "<%= name %>"},
+            dataType: 'json',
+            success: function(data) {
+              getNameCard()
+              clearInterval(check)
+            }
+          })
+        }, 15000)
+
+        function addNameCard() {
+          var popUrl = "/users";
+          var popOption= "width=400px, height=450px";
+          window.open(popUrl, "", popOption);
+        }
+
+        function getNameCard() {
+          var popUrl = "/card&<%= name %>";
+          var popOption= "width=100%, height=auto";
+          window.open(popUrl, "", popOption);
+        }
+    </script>
+</head>
+
+<body>
+    <a href="javascript:addNameCard();">
+   		<img id="addNameCard" src="/images/add.png" style="max-width: 100%; height: auto;">
+    </a>
+    <a href="javascript:getNameCard();">
+    <img id="getNameCard" src="/images/getList.png" style="max-width: 100%; height: auto;">
+    </a>
+    <img id="schedule" src="/images/schedule.png" style="max-width: 100%; height: auto;">
+</body>
+</html>

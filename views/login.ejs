@@ -2,18 +2,63 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>CardExchange - Login</title>
-	<link rel="stylesheet" href="/css/loginStyles.css">
+	<script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+	<script>
+		$(document).ready(function(){
+			document.body.style.backgroundImage = "url('/images/popupBack.png')";
+		});
+	</script>
+	<style>
+		label {
+			display: inline-block;
+			width: 140px;
+			text-align: left;
+			margin-left: 20px;
+		}
+		.button {
+			background-color: #4973be;
+			border: none;
+			color: white;
+			padding: 8px 20px;
+			margin: 0px 10px;
+			text-align: center;
+			text-decoration: none;
+			display: inline-block;
+			font-size: 12px;
+			border-radius: 4px;
+			width:90%;
+		}​
+	</style>
 </head>
 <body>
+<h2 style="text-align:center; color:white; margin-bottom:40px; margin-top:15px;">My Profile</h2>
+
 <form method="post" action="/users" >
-	<input type="text" name="name" /><br>
-	<input type="text" name="phone" /><br>
-	<input type="text" name="company" /><br>
-	<input type="text" name="email" /><br>
-	<input type="text" name="department" /><br>
-	<input type="text" name="address" /><br>
-  <input type="submit" />
+	<div class="block" style="margin-bottom:25px;">
+		<label style="color:white;">Company</label>
+		<input type="text" name="company" /><br>
+	</div>
+	<div class="block" style="margin-bottom:25px;">
+		<label style="color:white;">Name</label>
+		<input type="text" name="name" /><br>
+	</div>
+	<div class="block" style="margin-bottom:25px;">
+		<label style="color:white;">Position</label>
+		<input type="text" name="position" /><br>
+	</div>
+	<div class="block" style="margin-bottom:25px;">
+		<label style="color:white;">Department</label>
+		<input type="text" name="department" /><br>
+	</div>
+	<div class="block" style="margin-bottom:25px;">
+		<label style="color:white;">Cell Phone</label>
+		<input type="text" name="phone" /><br>
+	</div>
+	<div class="block" style="margin-bottom:25px;">
+		<label style="color:white;">E-mail</label>
+		<input type="text" name="email" /><br>
+	</div>
+	<input type="submit" class="button" value="Send"/>
 </form>
 </body>
 </html>

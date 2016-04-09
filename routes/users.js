@@ -9,7 +9,7 @@ var userArr = [];
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-    res.send('respond with a resource');
+    res.render('login')
 });
 
 router.post('/', (req, res, next) => {
@@ -24,7 +24,7 @@ router.post('/', (req, res, next) => {
 
     userArr.push(profile)
 
-    res.render('trade', {
+    res.render('input', {
         name: profile.name
     })
 
@@ -78,4 +78,7 @@ router.post('/checkSignal', (req, res, next) => {
     }
 })
 
-module.exports = router;
+module.exports = {
+    router: router,
+    userArr: userArr,
+};
