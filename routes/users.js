@@ -5,7 +5,7 @@ var router = express.Router();
 const db = require('../db')
 
 var sign = 0;
-var userArr = [];
+let userArr = [];
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
@@ -67,18 +67,18 @@ router.post('/checkSignal', (req, res, next) => {
     if(sign == 1){
         console.log("sign checked")
         for(let i=0; i<userArr.length; ++i){
-            console.log(userArr[i])
-            console.log(userArr[i].name !== name)
             if(userArr[i].name !== name){
-                console.log("in "+ userArr[i])
-                res.json(userArr[i])
+                res.json({ index: i })
                 break
             }
         }
     }
 })
 
-module.exports = {
-    router: router,
-    userArr: userArr,
-};
+router.get('/card', (req, res, next) => {
+    let index = req.body.index
+
+    res.render("result", userArr[index])
+})
+
+module.exports = router;

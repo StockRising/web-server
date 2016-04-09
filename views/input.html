@@ -8,27 +8,6 @@
     <link href="/css/bootstrap.min.css" rel="stylesheet">
     <script src="//code.jquery.com/jquery-1.9.1.js"></script>
     <script type="text/javascript">
-      $(document).ready(function() {
-
-        var userIndex = -1;
-        var name = "<%= name %>"
-        if(!name){
-          var check = setInterval(function() {
-            $.ajax({
-              url: "http://stockrising2.herokuapp.com/users/checkSignal",
-              //url: "http://localhost:3000/users/checkSignal",
-              type: "POST",
-              data: { name: "<%= name %>"},
-              dataType: 'json',
-              success: function(index) {
-                userIndex = index
-                getNameCard(index)
-                clearInterval(check)
-              }
-            })
-          }, 15000)
-        }
-
         function addNameCard() {
           var popUrl = "/users";
           var popOption= "width=400px, height=450px";
@@ -40,7 +19,6 @@
           var popOption= "width=100%, height=auto";
           window.open(popUrl, "", popOption);
         }
-      })
     </script>
 </head>
 
