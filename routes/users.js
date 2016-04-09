@@ -5,7 +5,7 @@ var router = express.Router();
 const db = require('../db')
 const fetch = require('isomorphic-fetch')
 
-let singal = 0
+var sign = 0;
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
@@ -41,9 +41,10 @@ router.post('/', (req, res, next) => {
         }
     })
 })
+
 router.get('/insertSignal', (req, res, next) => {
-    signal = 1;
-    res.send("Signal Inserted")
+    sign = 1;
+    res.send("Sign Inserted")
 })
 
 module.exports = router;
