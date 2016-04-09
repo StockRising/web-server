@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      setInterval(checkSignal(), 3000);
+    });
+
+    function checkSignal() {
+      $.ajax({
+        url: "http://stockrising2.herokuapp.com/checkSignal",
+        type: "POST",
+        data: { "name", "<%= name %>"},
+        dataType: 'json',
+        success: function (data) {
+          console.log(data);
+        }
+      });
+    };
+  </script>
+  <title>CardExchange - Room</title>
+</head>
+<body>
+  <h1><%= name %>님 환영합니다</h1>
+  <div>
+    <!-- draw modal -->
+  </div>
+</body>
+</html>

@@ -3,6 +3,9 @@
 var express = require('express');
 var router = express.Router();
 const db = require('../db')
+const fetch = require('isomorphic-fetch')
+
+let singal = 0
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
@@ -30,13 +33,17 @@ router.post('/', (req, res, next) => {
 
     newUser.save(error => {
         if(error) {
-            reject(error)
+            console.log(err)
         } else {
-            resolve(newUser)
+            res.render('trade', {
+                name: profile.name
+            })
         }
     })
-
-    res.end("Success")
+})
+router.get('/insertSignal', (req, res, next) => {
+    signal = 1;
+    res.send("Signal Inserted")
 })
 
 module.exports = router;
