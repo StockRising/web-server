@@ -13,8 +13,8 @@
         var userIndex = -1;
         var check = setInterval(function() {
           $.ajax({
-            //url: "http://stockrising2.herokuapp.com/users/checkSignal",
-            url: "http://localhost:3000/users/checkSignal",
+            url: "http://stockrising2.herokuapp.com/users/checkSignal",
+            //url: "http://localhost:3000/users/checkSignal",
             type: "POST",
             data: { name: "<%= name %>"},
             dataType: 'json',
