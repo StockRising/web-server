@@ -56,6 +56,7 @@ router.get('/insertSignal', (req, res, next) => {
 
 router.post('/insertSignal', (req, res, next) => {
     sign = req.body.sign
+    console.log("inserted: " + sign)
     res.send("Sign Inserted")
 })
 
@@ -75,10 +76,14 @@ router.post('/checkSignal', (req, res, next) => {
     }
 })
 
-router.get('/card', (req, res, next) => {
-    let index = req.body.index
+router.get('/card/:index', (req, res, next) => {
+    let index = req.params.index
 
-    res.render("result", userArr[index])
+    console.log("index: " + index)
+    console.log()
+    res.render("result", {
+        result: userArr[index]
+    })
 })
 
 module.exports = router;

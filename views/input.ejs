@@ -11,23 +11,21 @@
       $(document).ready(function() {
 
         var userIndex = -1;
-        var name = "<%= name %>"
-        if(!name){
-          var check = setInterval(function() {
-            $.ajax({
-              url: "http://stockrising2.herokuapp.com/users/checkSignal",
-              //url: "http://localhost:3000/users/checkSignal",
-              type: "POST",
-              data: { name: "<%= name %>"},
-              dataType: 'json',
-              success: function(index) {
-                userIndex = index
-                getNameCard(index)
-                clearInterval(check)
-              }
-            })
-          }, 15000)
-        }
+        var check = setInterval(function() {
+          $.ajax({
+            //url: "http://stockrising2.herokuapp.com/users/checkSignal",
+            url: "http://localhost:3000/users/checkSignal",
+            type: "POST",
+            data: { name: "<%= name %>"},
+            dataType: 'json',
+            success: function(data) {
+              console.log(data)
+              userIndex = data.index
+              getNameCard(userIndex)
+              clearInterval(check)
+            }
+          })
+        }, 15000)
 
         function addNameCard() {
           var popUrl = "/users";
@@ -36,7 +34,8 @@
         }
 
         function getNameCard(index) {
-          var popUrl = "/users/card&index="+index;
+          console.log(index)
+          var popUrl = "/users/card/"+index;
           var popOption= "width=100%, height=auto";
           window.open(popUrl, "", popOption);
         }

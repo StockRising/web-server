@@ -11,13 +11,15 @@
         function addNameCard() {
           var popUrl = "/users";
           var popOption= "width=400px, height=450px";
-          window.open(popUrl, "", popOption);
+          location.replace(popUrl);
+//          window.open(popUrl, "", popOption);
         }
 
         function getNameCard(index) {
           var popUrl = "/users/card&index="+index;
           var popOption= "width=100%, height=auto";
-          window.open(popUrl, "", popOption);
+          location.replace(popUrl);
+//          window.open(popUrl, "", popOption);
         }
     </script>
 </head>
