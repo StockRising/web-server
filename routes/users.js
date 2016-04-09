@@ -47,4 +47,9 @@ router.get('/insertSignal', (req, res, next) => {
     res.send("Sign Inserted")
 })
 
+router.post('/insertSignal', (req, res, next) => {
+    sign = req.body.sign
+    res.send("Sign Inserted")
+})
+
 module.exports = router;
