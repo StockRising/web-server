@@ -15,11 +15,11 @@ router.get('/', function(req, res, next) {
 router.post('/', (req, res, next) => {
     let profile = {
         name: req.body.name,
-        phoneNum:  req.body.phone,
+        phone:  req.body.phone,
         company: req.body.company,
         email: req.body.email,
         department: req.body.department,
-        address: req.body.address
+        position: req.body.position
     }
 
     userArr.push(profile)
