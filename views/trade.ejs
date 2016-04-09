@@ -5,26 +5,37 @@
   <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
   <script type="text/javascript">
     $(document).ready(function() {
-      setInterval(checkSignal(), 3000);
+      var check = setInterval(function() {
+        $.ajax({
+          url: "http://stockrising2.herokuapp.com/users/checkSignal",
+          type: "POST",
+          data: { name: "<%= name %>"},
+          dataType: 'json',
+          success: function(data) {
+            console.log(data)
+            clearInterval(check)
+          }
+        })
+      }, 15000)
+//      while(1){
+//        $.ajax({
+//          url: "http://localhost:3000/users/checkSignal",
+//          type: "POST",
+//          data: { name: "<%= name %>"},
+//          dataType: 'json',
+//          success: function(data) {
+//            console.log(data)
+//            flag = true
+//          }
+//        });
+//      }
     });
-
-    function checkSignal() {
-      $.ajax({
-        url: "http://stockrising2.herokuapp.com/checkSignal",
-        type: "POST",
-        data: { "name", "<%= name %>"},
-        dataType: 'json',
-        success: function (data) {
-          console.log(data);
-        }
-      });
-    };
   </script>
   <title>CardExchange - Room</title>
 </head>
 <body>
   <h1><%= name %>님 환영합니다</h1>
-  <div>
+  <div id="showCard">
     <!-- draw modal -->
   </div>
 </body>
