@@ -70,7 +70,6 @@ router.post('/checkSignal', (req, res, next) => {
         for(let i=0; i<userArr.length; ++i){
             if(userArr[i].name !== name){
                 res.json({ index: i })
-                break
             }
         }
     }
